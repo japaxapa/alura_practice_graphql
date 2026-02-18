@@ -1,12 +1,101 @@
-# React + Vite
+# React Runner Circle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application for tracking running workouts and sharing them with a community feed. Built with Vite, Apollo GraphQL Client, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v16 or higher)
+- npm
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to get the application up and running:
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the GraphQL Server
+
+Open a terminal and run the local GraphQL server:
+
+```bash
+npm run server:json-graphql
+```
+
+The server will be running on `http://localhost:3001`
+
+### 3. Run the Development Server
+
+Open another terminal and start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173` (or the port shown in your terminal)
+
+## Available Scripts
+
+- `npm run dev` - Start the Vite development server with hot module replacement
+- `npm run build` - Build the application for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint to check code quality
+- `npm run server:json-server` - Run a JSON server (alternative to GraphQL server)
+- `npm run server:json-graphql` - Run the JSON GraphQL server
+
+## Project Structure
+
+```
+src/
+├── pages/           # Page components (Feed, NewPost, Login, etc.)
+├── components/
+│   ├── layout/      # Layout components (Header, Sidebar, etc.)
+│   ├── forms/       # Form components (LoginForm, NewPostForm, etc.)
+│   └── ui/          # Reusable UI components (Button, Card, Input, etc.)
+├── assets/          # Static assets
+├── App.jsx          # Main App component
+├── main.jsx         # Entry point
+└── index.css        # Global styles
+
+database/
+├── json-graphql-server.js  # GraphQL server configuration
+├── json-server.json        # JSON server data
+└── graphql/
+    ├── query/       # GraphQL query definitions
+    └── mutation/    # GraphQL mutation definitions
+```
+
+## Technology Stack
+
+- **React** - UI library
+- **Vite** - Build tool and dev server
+- **Apollo Client** - GraphQL client
+- **Tailwind CSS** - Utility-first CSS framework
+- **Material-UI (MUI)** - Component library
+- **json-graphql-server** - Local GraphQL backend
+
+## Development
+
+The application uses Apollo Client to manage state and communicate with the GraphQL server. The cache is automatically updated when mutations are performed.
+
+### Making Changes
+
+1. Edit files in `src/`
+2. Changes will automatically hot-reload in your browser
+3. Check the browser console for any errors
+
+## Building for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+The optimized build will be created in the `dist/` folder.
+
+## License
+
+MIT
